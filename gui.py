@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     root.title("Image To PDF Maker")
-    root.geometry("600x550")  # Increased window size to 600x550
+    root.geometry("600x700")  # Increased window size to 600x550
     root.configure(bg="#222222")
 
     radio_var = tk.IntVar()
@@ -113,10 +113,10 @@ if __name__ == "__main__":
     dpi_var = tk.IntVar()
     dpi_var.set(1)  # Set default DPI option to 1
 
-    title_label = tk.Label(root, text="Image To PDF Maker", font=("Helvetica", 18), bg="#222222", fg="#ffffff")
+    title_label = tk.Label(root, text="Image To PDF Maker", font=("Helvetica", 20, "bold"), bg="#222222", fg="#ffffff")
     title_label.pack(pady=15)
 
-    extension_label = tk.Label(root, text="Enter Image Extension ex(.png):", font=("Helvetica", 12), bg="#222222", fg="#ffffff")
+    extension_label = tk.Label(root, text="Enter Image Extension ex(.png):", font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff")
     extension_label.pack()
 
     extension_entry = tk.Entry(root, font=("Helvetica", 12), bg="#d3af37", fg="white")
@@ -125,43 +125,43 @@ if __name__ == "__main__":
     conversion_frame = tk.Frame(root, bg="#222222")
     conversion_frame.pack(pady=10, padx=20)
 
-    conversion_label = tk.Label(conversion_frame, text="Select Conversion Option:", font=("Helvetica", 12), bg="#222222", fg="#d3af37")
+    conversion_label = tk.Label(conversion_frame, text="Select Conversion Option:", font=("Helvetica", 14, "bold"), bg="#222222", fg="#d3af37")
     conversion_label.pack(anchor="w")
 
-    dir_radio = tk.Radiobutton(conversion_frame, text="Store in Text File", variable=radio_var, value=1, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    dir_radio.pack(anchor="w")
+    dir_radio = tk.Radiobutton(conversion_frame, text="Store in Text File", variable=radio_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    dir_radio.pack(anchor="s", pady=2)
 
-    pdf_radio = tk.Radiobutton(conversion_frame, text="Convert to PDF", variable=radio_var, value=2, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    pdf_radio.pack(anchor="w")
+    pdf_radio = tk.Radiobutton(conversion_frame, text="Convert to PDF", variable=radio_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    pdf_radio.pack(anchor="s", pady=2)
 
     dpi_frame = tk.Frame(root, bg="#222222")
     dpi_frame.pack(pady=10, padx=20)
 
-    dpi_label = tk.Label(dpi_frame, text="Select DPI Option:", font=("Helvetica", 12), bg="#222222", fg="#d3af37")
+    dpi_label = tk.Label(dpi_frame, text="Select DPI Option:", font=("Helvetica", 14, "bold"), bg="#222222", fg="#d3af37")
     dpi_label.pack(anchor="w")
 
-    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    screen_radio.pack(anchor="w")
+    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    screen_radio.pack(anchor="w", pady=2)
 
-    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    ebook_radio.pack(anchor="w")
+    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    ebook_radio.pack(anchor="w", pady=2)
 
-    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    prepress_radio.pack(anchor="w")
+    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    prepress_radio.pack(anchor="w", pady=2)
 
-    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 11), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    normal_radio.pack(anchor="w")
+    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    normal_radio.pack(anchor="w", pady=5)
 
-    select_dir_button = tk.Button(root, text="Select Image Directory", command=select_image_directory, font=("Helvetica", 12), bg="#d3af37")
+    select_dir_button = tk.Button(root, text="Select Image Directory", command=select_image_directory, font=("Helvetica", 12, "bold"), bg="#d3af37")
     select_dir_button.pack(pady=10)
 
-    directory_label = tk.Label(root, text="", font=("Helvetica", 11), bg="#222222", fg="#ffffff")
+    directory_label = tk.Label(root, text="", font=("Helvetica", 13), bg="#222222", fg="#ffffff")
     directory_label.pack()
 
-    convert_button = tk.Button(root, text="Convert", command=on_convert_click, font=("Helvetica", 12), bg="#d3af37")
+    convert_button = tk.Button(root, text="Convert", command=on_convert_click, font=("Helvetica", 14, "bold"), bg="#d3af37")
     convert_button.pack(pady=15)
 
-    credits_button = tk.Button(root, text="Credits (Contributors)", command=show_credits, font=("Helvetica", 10), bg="#d3af37", fg="#222222")
+    credits_button = tk.Button(root, text="Credits (Contributors)", command=show_credits, font=("Helvetica", 11), bg="#d3af37", fg="#222222")
     credits_button.pack(pady=5)
 
     root.mainloop()
