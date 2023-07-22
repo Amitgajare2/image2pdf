@@ -2,7 +2,7 @@ import os
 import img2pdf
 import re
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox, colorchooser
 
 def dir_text_file(extension):
     img_ext = f".{extension.strip('.')}"
@@ -98,13 +98,33 @@ def on_convert_click():
 def show_credits():
     messagebox.showinfo("Credits", "Contributors:\n\nmortadapro#1127\npiratezoro#4189")
 
+def choose_background_color():
+    color = colorchooser.askcolor(parent=root)  # Pass the root as the parent to the colorchooser
+    if color[1]:
+        root.config(bg=color[1])
+        change_widgets_bg(color[1])
+        change_radio_colors(color[1])
+
+def change_widgets_bg(color):
+    widgets = [root, title_label, extension_label, extension_entry, conversion_frame, conversion_label,
+               dir_radio, pdf_radio, dpi_frame, dpi_label, screen_radio, ebook_radio, prepress_radio,
+               normal_radio, select_dir_button, directory_label, convert_button, credits_button]
+
+    for widget in widgets:
+        widget.config(bg=color)
+
+def change_radio_colors(color):
+    radio_buttons = [dir_radio, pdf_radio, screen_radio, ebook_radio, prepress_radio, normal_radio]
+    for radio_button in radio_buttons:
+        radio_button.config(selectcolor=color)
+
 if __name__ == "__main__":
     path = ""
     dir_list = []
 
     root = tk.Tk()
     root.title("Image To PDF Maker")
-    root.geometry("600x700")  # Increased window size to 600x550
+    root.geometry("600x700")  # Increased window size to 600x700
     root.configure(bg="#222222")
 
     radio_var = tk.IntVar()
@@ -113,7 +133,7 @@ if __name__ == "__main__":
     dpi_var = tk.IntVar()
     dpi_var.set(1)  # Set default DPI option to 1
 
-    title_label = tk.Label(root, text="Image To PDF Maker", font=("Helvetica", 20, "bold"), bg="#222222", fg="#ffffff")
+    title_label = tk.Label(root, text="Image To PDF Maker", font=("Helvetica", 22, "bold"), bg="#222222", fg="#ffffff")
     title_label.pack(pady=15)
 
     extension_label = tk.Label(root, text="Enter Image Extension ex(.png):", font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff")
@@ -129,10 +149,10 @@ if __name__ == "__main__":
     conversion_label.pack(anchor="w")
 
     dir_radio = tk.Radiobutton(conversion_frame, text="Store in Text File", variable=radio_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    dir_radio.pack(anchor="s", pady=2)
+    dir_radio.pack(anchor="w", pady=5)
 
     pdf_radio = tk.Radiobutton(conversion_frame, text="Convert to PDF", variable=radio_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
-    pdf_radio.pack(anchor="s", pady=2)
+    pdf_radio.pack(anchor="w", pady=5)
 
     dpi_frame = tk.Frame(root, bg="#222222")
     dpi_frame.pack(pady=10, padx=20)
@@ -140,16 +160,16 @@ if __name__ == "__main__":
     dpi_label = tk.Label(dpi_frame, text="Select DPI Option:", font=("Helvetica", 14, "bold"), bg="#222222", fg="#d3af37")
     dpi_label.pack(anchor="w")
 
-    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
     screen_radio.pack(anchor="w", pady=2)
 
-    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
     ebook_radio.pack(anchor="w", pady=2)
 
-    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
     prepress_radio.pack(anchor="w", pady=2)
 
-    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
     normal_radio.pack(anchor="w", pady=5)
 
     select_dir_button = tk.Button(root, text="Select Image Directory", command=select_image_directory, font=("Helvetica", 12, "bold"), bg="#d3af37")
@@ -163,5 +183,11 @@ if __name__ == "__main__":
 
     credits_button = tk.Button(root, text="Credits (Contributors)", command=show_credits, font=("Helvetica", 11), bg="#d3af37", fg="#222222")
     credits_button.pack(pady=5)
+
+    theme_frame = tk.Frame(root, bg="#222222")
+    theme_frame.pack(pady=10)
+
+    custom_bg_button = tk.Button(theme_frame, text="Custom Theme", command=choose_background_color, font=("arial", 13, "bold"))
+    custom_bg_button.grid(row=0, column=0, padx=10, pady=5, sticky="w")
 
     root.mainloop()
