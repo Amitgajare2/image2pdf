@@ -148,10 +148,10 @@ if __name__ == "__main__":
     conversion_label = tk.Label(conversion_frame, text="Select Conversion Option:", font=("Helvetica", 14, "bold"), bg="#222222", fg="#d3af37")
     conversion_label.pack(anchor="w")
 
-    dir_radio = tk.Radiobutton(conversion_frame, text="Store in Text File", variable=radio_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    dir_radio = tk.Radiobutton(conversion_frame, text="Store in Text File", variable=radio_var, value=1, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#000000")
     dir_radio.pack(anchor="w", pady=5)
 
-    pdf_radio = tk.Radiobutton(conversion_frame, text="Convert to PDF", variable=radio_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    pdf_radio = tk.Radiobutton(conversion_frame, text="Convert to PDF", variable=radio_var, value=2, font=("Helvetica", 13, "bold"), bg="#222222", fg="#ffffff", selectcolor="#000000")
     pdf_radio.pack(anchor="w", pady=5)
 
     dpi_frame = tk.Frame(root, bg="#222222")
@@ -160,16 +160,16 @@ if __name__ == "__main__":
     dpi_label = tk.Label(dpi_frame, text="Select DPI Option:", font=("Helvetica", 14, "bold"), bg="#222222", fg="#d3af37")
     dpi_label.pack(anchor="w")
 
-    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    screen_radio = tk.Radiobutton(dpi_frame, text="Screen (72 DPI)", variable=dpi_var, value=1, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#000000")
     screen_radio.pack(anchor="w", pady=2)
 
-    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    ebook_radio = tk.Radiobutton(dpi_frame, text="Ebook (150 DPI)", variable=dpi_var, value=2, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#000000")
     ebook_radio.pack(anchor="w", pady=2)
 
-    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    prepress_radio = tk.Radiobutton(dpi_frame, text="Prepress (300 DPI)", variable=dpi_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#000000")
     prepress_radio.pack(anchor="w", pady=2)
 
-    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#d3af37")
+    normal_radio = tk.Radiobutton(dpi_frame, text="Normal Conversion", variable=radio_var, value=3, font=("Helvetica", 13), bg="#222222", fg="#ffffff", selectcolor="#000000")
     normal_radio.pack(anchor="w", pady=5)
 
     select_dir_button = tk.Button(root, text="Select Image Directory", command=select_image_directory, font=("Helvetica", 12, "bold"), bg="#d3af37")
