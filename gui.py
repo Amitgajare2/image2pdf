@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     root.title("Image To PDF Maker")
-    root.geometry("600x700")  # Increased window size to 600x700
+    root.geometry("500x600")  # Increased window size to 600x700
     root.configure(bg="#222222")
 
     radio_var = tk.IntVar()
